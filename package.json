@@ -20,6 +20,7 @@
     "gulp-less": "*",
     "gulp-concat": "*",
     "gulp-inject": "*",
+    "path": "*",
     "browser-sync": "*"
   },
   "engines": {

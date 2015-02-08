@@ -1,4 +1,5 @@
 global = {
+  packageJson:      require('./package.json'),
   gulp:             require('gulp'),
   gulpRunSequence:  require('gulp-run-sequence'),
   gulpClean:        require('gulp-clean'),
@@ -13,6 +14,7 @@ global = {
   gulpConcatConf:   require('./config/gulp-concat.conf.js'),
   gulpInject:       require('gulp-inject'),
   gulpInjectConf:   require('./config/gulp-inject.conf.js'),
+  path:             require('path'),
 
   options: {
     angular: {
@@ -45,6 +47,7 @@ gulp.task('server:dist',  global.browserSyncConf.serveDist);
 gulp.task('clean:build',  global.gulpCleanConf.cleanBuild);
 gulp.task('copy:build',   global.gulpFileCopyConf.copyBuild);
 gulp.task('inject:build', global.gulpInjectConf.injectBuild);
+gulp.task('less:build',   global.gulpLessConf.lessBuild);
 gulp.task('build', function() {
   gulpRunSequence(
     'clean:build',
@@ -52,7 +55,7 @@ gulp.task('build', function() {
     'serve:build'
   );
 });
-
+gulp.task('less:dist', global.gulpLessConf.lessDist);
 
 gulp.task('copy:dist',   global.gulpFileCopyConf.copyDist);
 
