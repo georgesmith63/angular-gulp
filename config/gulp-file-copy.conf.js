@@ -1,38 +1,38 @@
 module.exports = {
   copyBuild: function() {
     gulp         = global.gulp;
-    folderSrc    = global.options.folders.src;
+    foldersSrc   = global.options.folders.src;
     filesJs      = global.options.files.js;
     filesTpl     = global.options.files.tpl;
     filesHtml    = global.options.files.html;
 
-    folderBuild  = global.options.folders.build;
+    foldersBuild = global.options.folders.build;
 
     files = [
-      folderSrc + '/' + filesHtml,
-      folderSrc + '/' + filesJs,
-      folderSrc + '/' + filesTpl
+      foldersSrc + '/' + filesHtml,
+      foldersSrc + '/' + filesJs,
+      foldersSrc + '/' + filesTpl
     ];
 
     return gulp.src( files )
-      .pipe( gulp.dest( folderBuild ) );
+      .pipe( gulp.dest( foldersBuild ) );
   },
   copyDist: function() {
     gulp         = global.gulp;
-    folderSrc    = global.options.folders.src;
+    foldersSrc   = global.options.folders.src;
     filesJs      = global.options.files.js;
     filesTpl     = global.options.files.tpl;
     filesHtml    = global.options.files.html;
 
-    folderDist   = global.options.folders.dist;
+    foldersDist  = global.options.folders.dist;
 
     files = [
-      folderSrc + '/' + filesHtml,
-      folderSrc + '/' + filesJs,
-      folderSrc + '/' + filesTpl
+      foldersSrc + '/' + filesHtml,
+      foldersSrc + '/' + filesJs,
+      foldersSrc + '/' + filesTpl
     ];
 
     return gulp.src( files )
-      .pipe( gulp.dest( folderDist ) );
+      .pipe( gulp.dest( foldersDist ) );
   }
 }
