@@ -9,5 +9,14 @@ module.exports = {
       .pipe(gulpConcat('vendor.js'))
       .pipe(gulp.dest('dest/'));
 
+  },
+
+  concatFiles: function( filesToConcat, foldersDest, file ) {
+    gulp          = global.gulp;
+    gulpConcat    = global.gulpConcat;
+
+    return gulp.src( filesToConcat )
+      .pipe(gulpConcat( file ))
+      .pipe(gulp.dest( foldersDest ));
   }
 }

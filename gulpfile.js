@@ -22,6 +22,7 @@ global = {
       suffix: 'config/angular.suffix',
     },
     folders: {
+      bower:  './bower_components',
       src:    './src',
       build:  './build',
       dist:   './dist',

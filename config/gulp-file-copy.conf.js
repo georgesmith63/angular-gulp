@@ -20,7 +20,6 @@ module.exports = {
   copyDist: function() {
     gulp         = global.gulp;
     foldersSrc   = global.options.folders.src;
-    filesJs      = global.options.files.js;
     filesTpl     = global.options.files.tpl;
     filesHtml    = global.options.files.html;
 
