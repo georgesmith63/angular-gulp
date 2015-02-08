@@ -41,6 +41,7 @@ var gulpRunSequence = global.gulpRunSequence;
 gulp.task('default', function() {});
 
 gulp.task('serve:build',  global.browserSyncConf.serveBuild);
+gulp.task('server:dist',  global.browserSyncConf.serveDist);
 gulp.task('clean:build',  global.gulpCleanConf.cleanBuild);
 gulp.task('copy:build',   global.gulpFileCopyConf.copyBuild);
 gulp.task('inject:build', global.gulpInjectConf.injectBuild);
