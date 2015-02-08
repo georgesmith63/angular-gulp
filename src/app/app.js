@@ -13,18 +13,18 @@ angular.module( 'angularSeed', [
     url: '/home',
     views: {
       'header': {
-        templateUrl: 'header/header.tpl.html'
+        templateUrl: 'header/header.tpl'
       },
       'main': {
-        templateUrl: 'home/home.tpl.html',
+        templateUrl: 'home/home.tpl',
         controller: 'HomeCtrl'
       },
       'footer': {
-        templateUrl: 'footer/footer.tpl.html'
+        templateUrl: 'footer/footer.tpl'
       }
     },
-    data: { 
-      pageTitle: 'Home' 
+    data: {
+      pageTitle: 'Home'
     }
   });
   $locationProvider
@@ -44,4 +44,3 @@ angular.module( 'angularSeed', [
 })
 
 ;
-

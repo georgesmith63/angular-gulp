@@ -1,15 +1,15 @@
 module.exports = {
-  serve: function() {
-    var gulp        = global.gulp;
-    var browserSync = global.browserSync;
-    var src         = global.options.src;
-    var files       = global.options.files;
+  serveBuild: function() {
+    var gulp         = global.gulp;
+    var browserSync  = global.browserSync;
+    var foldersBuild = global.options.folders.build;
+    var files        = '**/*'
 
     browserSync({
       server: {
-        baseDir: src
+        baseDir: foldersBuild
       }
     });
-    gulp.watch(files, {cwd: src}, browserSync.reload);
+    gulp.watch(files, {cwd: foldersBuild}, browserSync.reload);
   }
 }

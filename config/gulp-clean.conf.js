@@ -1,10 +1,18 @@
 module.exports = {
-  clean: function() {
+  cleanBuild: function() {
+    var gulp         = global.gulp;
+    var gulpClean    = global.gulpClean;
+    var foldersBuild = global.options.folders.build;
+
+    return gulp.src(foldersBuild, {read: false})
+      .pipe(gulpClean());
+  },
+  cleanDist: function() {
     var gulp      = global.gulp;
     var gulpClean = global.gulpClean;
-    var dest      = global.options.dest;
+    var dist      = global.options.dist;
 
-    return gulp.src(dest, {read: false})
+    return gulp.src(dist, {read: false})
       .pipe(gulpClean());
   }
 }
