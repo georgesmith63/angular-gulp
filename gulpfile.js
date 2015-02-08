@@ -28,6 +28,7 @@ global = {
       html:   'index.html',
       tpl:    '**/*.tpl',
       less:   '**/*.less',
+      css:    '**/*.css',
       js:     '**/*.js',
       spec:   '**/*.spec-js'
     }
@@ -51,6 +52,8 @@ gulp.task('build', function() {
   );
 });
 
+
+gulp.task('copy:dist',   global.gulpFileCopyConf.copyDist);
 
 
 

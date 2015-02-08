@@ -2,13 +2,27 @@ module.exports = {
   injectBuild: function() {
     gulp         = global.gulp;
     gulpInject   = global.gulpInject;
-    foldersSrc   = global.options.folders.src;
     foldersBuild = global.options.folders.build;
-    fileHtml     = global.options.files.html;
-    fileJs       = global.options.files.js;
+    filesHtml    = global.options.files.html;
+    filesJs      = global.options.files.js;
+    filesCss     = global.options.files.css;
 
-    gulp.src( foldersSrc + '/' + fileHtml )
-      .pipe( gulpInject( gulp.src( foldersSrc + '/' + fileJs, {read: false}), {relative: true}))
+    gulp.src( foldersBuild + '/' + filesHtml )
+      .pipe( gulpInject( gulp.src( foldersBuild + '/' + filesJs,  {read: false}), {relative: true}))
+      .pipe( gulpInject( gulp.src( foldersBuild + '/' + filesCss, {read: false}), {relative: true}))
       .pipe( gulp.dest( foldersBuild ));
+  },
+  injectDist: function() {
+    gulp         = global.gulp;
+    gulpInject   = global.gulpInject;
+    foldersDist  = global.options.folders.dist;
+    filesHtml    = global.options.files.html;
+    filesJs      = global.options.files.js;
+    filesCss     = global.options.files.css;
+
+    gulp.src( foldersDist + '/' + filesHtml )
+      .pipe( gulpInject( gulp.src( foldersDist + '/' + filesJs,  {read: false}), {relative: true}))
+      .pipe( gulpInject( gulp.src( foldersDist + '/' + filesCss, {read: false}), {relative: true}))
+      .pipe( gulp.dest( foldersDist ));
   }
 }
