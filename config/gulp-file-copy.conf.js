@@ -20,13 +20,13 @@ module.exports = {
   copyBuildVendor: function() {
     gulp         = global.gulp;
     foldersSrc   = global.options.folders.src;
-    filesVendor  = global.options.vendor;
+    filesVendor  = global.options.vendor.components.files;
+    vendorTarget = global.options.vendor.components.target;
     filesHtml    = global.options.files.html;
-
     foldersBuild = global.options.folders.build;
 
     return gulp.src( filesVendor )
-      .pipe( gulp.dest( foldersBuild + '/vendor' ) );
+      .pipe( gulp.dest( foldersBuild + '/' + vendorTarget ) );
   },
   copyDist: function() {
     gulp         = global.gulp;

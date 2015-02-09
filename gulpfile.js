@@ -49,7 +49,7 @@ global = {
           './bower_components/bootstrap/dist/bootstrap.min.css',
         ],
         target: 'vendor'
-      }
+      },
 
       files: [
         './bower_components/bootstrap/dist/fonts/*'
@@ -83,8 +83,10 @@ gulp.task('build', function() {
   gulpRunSequence(
     'clean:build',
     'copy:build',
-    'serve:build',
-    'ngHtml2js:build'
+    'copy:build:vendor',
+    'ngHtml2js:build',
+    'inject:build',
+    'serve:build'
   );
 });
 gulp.task('less:dist', global.gulpLessConf.lessDist);
