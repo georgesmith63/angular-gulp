@@ -12,14 +12,14 @@ angular.module( 'angularSeed', [
     url: '/home',
     views: {
       'header': {
-        templateUrl: 'header/header.tpl'
+        templateUrl: 'app/header/header.tpl'
       },
       'main': {
-        templateUrl: 'home/home.tpl',
+        templateUrl: 'app/home/home.tpl',
         controller: 'HomeCtrl'
       },
       'footer': {
-        templateUrl: 'footer/footer.tpl'
+        templateUrl: 'app/footer/footer.tpl'
       }
     },
     data: {
