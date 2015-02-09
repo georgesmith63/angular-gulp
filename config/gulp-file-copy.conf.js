@@ -14,19 +14,21 @@ module.exports = {
       foldersSrc + '/' + filesTpl
     ];
 
-    return gulp.src( files )
+    gulp.src( files )
       .pipe( gulp.dest( foldersBuild ) );
   },
-  copyBuildVendor: function() {
-    gulp         = global.gulp;
-    foldersSrc   = global.options.folders.src;
-    filesVendor  = global.options.vendor.components.files;
-    vendorTarget = global.options.vendor.components.target;
-    filesHtml    = global.options.files.html;
-    foldersBuild = global.options.folders.build;
+  copyVendor: function() {
+    gulp              = global.gulp;
+    foldersSrc        = global.options.folders.src;
+    vendorComponents  = global.options.vendor.components;
+    vendorFonts       = global.options.vendor.fonts;
+    foldersBuild      = global.options.folders.build;
 
-    return gulp.src( filesVendor )
-      .pipe( gulp.dest( foldersBuild + '/' + vendorTarget ) );
+    gulp.src( vendorComponents.files )
+      .pipe( gulp.dest( foldersBuild + '/' + vendorComponents.target ) );
+
+    gulp.src( vendorFonts.files )
+      .pipe( gulp.dest( foldersBuild + '/' + vendorFonts.target ) );
   },
   copyDist: function() {
     gulp         = global.gulp;
