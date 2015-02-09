@@ -22,7 +22,8 @@
     "gulp-inject": "*",
     "path": "*",
     "browser-sync": "*",
-    "gulp-uglify": "*"
+    "gulp-uglify": "*",
+    "gulp-ng-html2js": "*"
   },
   "engines": {
     "node": ">=0.10.0"
