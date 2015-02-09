@@ -21,13 +21,13 @@ global = {
   options: {
     angular: {
       prefix: 'config/angular.prefix',
-      suffix: 'config/angular.suffix',
+      suffix: 'config/angular.suffix'
     },
     folders: {
       bower:  './bower_components',
       src:    './src',
       build:  './build',
-      dist:   './dist',
+      dist:   './dist'
     },
     files: {
       html:   'index.html',
@@ -36,7 +36,24 @@ global = {
       css:    '**/*.css',
       js:     '**/*.js',
       spec:   '**/*.spec-js'
+    },
+    vendor: {
+      components: {
+        files: [
+          './bower_components/jquery/dist/jquery.min.js',
+          './bower_components/angular/angular.js',
+          './bower_components/angular-ui-router/release/angular-ui-router.js',
+          './bower_components/bootstrap/dist/bootstrap.min.js',
+          './bower_components/bootstrap/dist/bootstrap.min.css',
+        ],
+        target: 'vendor'
+      }
+
+      files: [
+        './bower_components/bootstrap/dist/fonts/*'
+      ]
     }
+
   }
 }
 
@@ -49,6 +66,7 @@ gulp.task('serve:build',  global.browserSyncConf.serveBuild);
 gulp.task('server:dist',  global.browserSyncConf.serveDist);
 gulp.task('clean:build',  global.gulpCleanConf.cleanBuild);
 gulp.task('copy:build',   global.gulpFileCopyConf.copyBuild);
+gulp.task('copy:build:vendor', global.gulpFileCopyConf.copyBuildVendor);
 gulp.task('inject:build', global.gulpInjectConf.injectBuild);
 gulp.task('uglify:build', global.gulpUglifyConf.uglifyBuild);
 gulp.task('less:build',   global.gulpLessConf.lessBuild);
