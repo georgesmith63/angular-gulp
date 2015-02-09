@@ -18,8 +18,8 @@ module.exports = {
     console.log(files);
 
     gulp.src( foldersBuild + '/' + filesHtml )
-      // .pipe( gulpInject( gulp.src( files ), {name:'vendor'}))
-      .pipe( gulpInject( gulp.src( foldersBuild + '/app/' + filesJs).pipe(angularFilesort()), {name:'app'}))
+      .pipe( gulpInject( gulp.src( files ), {name:'vendor', relative: true}))
+      .pipe( gulpInject( gulp.src( foldersBuild + '/app/' + filesJs).pipe(angularFilesort()), {name:'app', relative: true}))
       .pipe( gulp.dest( foldersBuild ));
 
     // gulp.src( foldersBuild + '/' + filesHtml )

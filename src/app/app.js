@@ -1,5 +1,5 @@
 angular.module( 'angularSeed', [
-  'templates-common',
+  'common-templates',
   'angularSeed.home',
   'ui.router'
 ])

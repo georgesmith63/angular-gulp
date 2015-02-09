@@ -43,7 +43,7 @@ global = {
     vendor: {
       js: {
         files: [
-          './bower_components/jquery/dist/jquery.min.js',
+          './bower_components/jquery/dist/jquery.js',
           './bower_components/angular/angular.js',
           './bower_components/angular-ui-router/release/angular-ui-router.js',
           './bower_components/bootstrap/dist/bootstrap.min.js'
@@ -79,6 +79,7 @@ gulp.task('copy:vendor', global.gulpFileCopyConf.copyVendor);
 gulp.task('inject:build', global.gulpInjectConf.injectBuild);
 gulp.task('uglify:build', global.gulpUglifyConf.uglifyBuild);
 gulp.task('less:build',   global.gulpLessConf.lessBuild);
+gulp.task('ngHtml2js:build', global.gulpHtml2JsConf.html2jsBuild);
 gulp.task('build:dist', function(){
   gulpRunSequence(
     'uglify:build'
@@ -90,6 +91,7 @@ gulp.task('build', function() {
     'clean:build',
     'copy:build',
     'copy:vendor',
+    'ngHtml2js:build',
     'inject:build',
     'serve:build'
   );
