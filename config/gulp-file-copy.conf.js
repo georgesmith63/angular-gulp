@@ -20,15 +20,16 @@ module.exports = {
   copyVendor: function() {
     gulp              = global.gulp;
     foldersSrc        = global.options.folders.src;
-    vendorComponents  = global.options.vendor.components;
-    vendorFonts       = global.options.vendor.fonts;
+    vendor            = global.options.vendor;
+    vendorFonts       = global.options.vendor;
     foldersBuild      = global.options.folders.build;
 
-    gulp.src( vendorComponents.files )
-      .pipe( gulp.dest( foldersBuild + '/' + vendorComponents.target ) );
-
-    gulp.src( vendorFonts.files )
-      .pipe( gulp.dest( foldersBuild + '/' + vendorFonts.target ) );
+    gulp.src( vendor.js.files )
+      .pipe( gulp.dest( foldersBuild + '/' + vendor.js.target ) );
+    gulp.src( vendor.css.files )
+      .pipe( gulp.dest( foldersBuild + '/' + vendor.css.target ) );
+    gulp.src( vendor.fonts.files )
+      .pipe( gulp.dest( foldersBuild + '/' + vendor.fonts.target ) );
   },
   copyDist: function() {
     gulp         = global.gulp;

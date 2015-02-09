@@ -23,7 +23,8 @@
     "path": "*",
     "browser-sync": "*",
     "gulp-uglify": "*",
-    "gulp-ng-html2js": "*"
+    "gulp-ng-html2js": "*",
+    "gulp-angular-filesort": "*"
   },
   "engines": {
     "node": ">=0.10.0"

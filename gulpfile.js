@@ -17,6 +17,9 @@ global = {
   path:             require('path'),
   gulpUglify:       require('gulp-uglify'),
   gulpUglifyConf:   require('./config/gulp-uglify.conf.js'),
+  gulpHtml2Js:      require('gulp-ng-html2js'),
+  gulpHtml2JsConf:  require('./config/gulp-ng-html2js.conf.js'),
+  gulpAngularFileSort:  require('gulp-angular-filesort'),
 
   options: {
     angular: {
@@ -38,13 +41,18 @@ global = {
       spec:   '**/*.spec-js'
     },
     vendor: {
-      components: {
+      js: {
         files: [
           './bower_components/jquery/dist/jquery.min.js',
           './bower_components/angular/angular.js',
           './bower_components/angular-ui-router/release/angular-ui-router.js',
-          './bower_components/bootstrap/dist/bootstrap.min.js',
-          './bower_components/bootstrap/dist/bootstrap.min.css',
+          './bower_components/bootstrap/dist/bootstrap.min.js'
+        ],
+        target: 'vendor'
+      },
+      css: {
+        files: [
+          './bower_components/bootstrap/dist/bootstrap.min.css'
         ],
         target: 'vendor'
       },
@@ -54,10 +62,7 @@ global = {
         ],
         target: 'vendor/fonts'
       }
-
-
     }
-
   }
 }
 
