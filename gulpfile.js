@@ -17,6 +17,8 @@ global = {
   path:             require('path'),
   gulpUglify:       require('gulp-uglify'),
   gulpUglifyConf:   require('./config/gulp-uglify.conf.js'),
+  gulpHtml2Js:      require('gulp-ng-html2js'),
+  gulpHtml2JsConf:  require('./config/gulp-ng-html2js.conf.js'),
 
   options: {
     angular: {
@@ -55,7 +57,7 @@ global = {
     }
 
   }
-}
+};
 
 var gulp = global.gulp;
 var gulpRunSequence = global.gulpRunSequence;
@@ -70,7 +72,8 @@ gulp.task('copy:build:vendor', global.gulpFileCopyConf.copyBuildVendor);
 gulp.task('inject:build', global.gulpInjectConf.injectBuild);
 gulp.task('uglify:build', global.gulpUglifyConf.uglifyBuild);
 gulp.task('less:build',   global.gulpLessConf.lessBuild);
-gulp.task('build:dist', function(){
+gulp.task('ngHtml2js:build', global.gulpHtml2JsConf.html2jsBuild);
+gulp.task('dist', function(){
   gulpRunSequence(
     'uglify:build'
   );
@@ -80,7 +83,8 @@ gulp.task('build', function() {
   gulpRunSequence(
     'clean:build',
     'copy:build',
-    'serve:build'
+    'serve:build',
+    'ngHtml2js:build'
   );
 });
 gulp.task('less:dist', global.gulpLessConf.lessDist);
