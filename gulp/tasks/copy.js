@@ -23,6 +23,8 @@ gulp.task('copy:build', function() {
 });
 
 gulp.task('copy:dist', function() {
+  gulp.src( folders.src + '/' + files.html )
+    .pipe( gulp.dest( folders.dist ))
   gulp.src( vendor.js.files )
     .pipe( gulp.dest( folders.dist + '/' + vendor.js.target ) );
   gulp.src( vendor.css.files )
