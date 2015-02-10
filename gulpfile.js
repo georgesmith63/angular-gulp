@@ -12,5 +12,6 @@
  */
 
 global.isProd = false;
-global.config = require('./config.js');
+global.packageJson = require('./package.json');
+global.config      = require('./config.js');
 require('./gulp');

@@ -2,8 +2,8 @@
 
 module.exports = {
   angular: {
-    prefix: 'config/angular.prefix',
-    suffix: 'config/angular.suffix'
+    prefix: 'gulp/angular.prefix',
+    suffix: 'gulp/angular.suffix'
   },
   folders: {
     src:    './src',
