@@ -23,7 +23,7 @@ var getVendorFiles = function(folder) {
 gulp.task('inject:build',function() {
   var foldersBuild = config.folders.build;
   var files = getVendorFiles( foldersBuild );
-  gulp.src( foldersBuild + '/' + filesHtml )
+  return gulp.src( foldersBuild + '/' + filesHtml )
     .pipe( gulpInject( gulp.src( files ), {name:'vendor', relative: true}))
     .pipe( gulpInject( gulp.src( foldersBuild + '/app/' + filesJs).pipe(angularFilesort()), {name:'app', relative: true}))
     .pipe( gulpInject( gulp.src( foldersBuild + '/' + filesCss), {relative: true}))
@@ -36,7 +36,7 @@ gulp.task('inject:dist', function() {
   var mainJs  = foldersDist + '/' + packageJson.name + '-' + packageJson.version + '.js';
   var mainCss = foldersDist + '/' + packageJson.name + '-' + packageJson.version + '.css';
 
-  gulp.src( foldersDist + '/' + filesHtml )
+  return gulp.src( foldersDist + '/' + filesHtml )
     .pipe( gulpInject( gulp.src( files ),   {name:'vendor', relative: true}))
     .pipe( gulpInject( gulp.src( mainJs ),  {name:'app', relative: true}))
     .pipe( gulpInject( gulp.src( mainCss ), {relative: true}))

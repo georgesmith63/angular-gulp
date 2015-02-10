@@ -12,8 +12,7 @@ var packageJson   = global.packageJson;
 var angularJs     = packageJson.name + '-' + packageJson.version + '.js';
 
 gulp.task('concat', function(){
-
-  gulp.src( [ angularPrefix,
+  return gulp.src( [ angularPrefix,
               foldersSrc + '/app/' + filesJs,
               foldersSrc + '/common/' + filesJs,
               angularSuffix ] )

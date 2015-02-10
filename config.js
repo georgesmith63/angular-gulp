@@ -36,7 +36,10 @@ module.exports = {
     },
     fonts: {
       files: [
-        './bower_components/bootstrap/dist/fonts/*'
+        './bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.eot',
+        './bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.svg',
+        './bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.ttf',
+        './bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff'
       ],
       target: 'vendor/fonts'
     }
