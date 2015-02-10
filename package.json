@@ -16,15 +16,15 @@
     "gulp": "*",
     "gulp-run-sequence": "*",
     "gulp-clean": "*",
-    "gulp-file-copy": "*",
     "gulp-less": "*",
     "gulp-concat": "*",
     "gulp-inject": "*",
-    "path": "*",
-    "browser-sync": "*",
     "gulp-uglify": "*",
     "gulp-ng-html2js": "*",
-    "gulp-angular-filesort": "*"
+    "gulp-angular-filesort": "*",
+    "browser-sync": "*",
+    "path": "*",
+    "fs": "*"
   },
   "engines": {
     "node": ">=0.10.0"

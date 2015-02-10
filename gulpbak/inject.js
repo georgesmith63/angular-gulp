@@ -10,7 +10,7 @@ module.exports = {
     vendorJs     = global.options.vendor.js.files;
 
     files = [];
-    for (var i = 0; i < vendorJs.length; ++i) {
+    for (var i = 0; i < vendorJs.length; i++) {
       var file = vendorJs[i];
       var fileSplit = file.split('/');
       files.push( foldersBuild + '/vendor/' + fileSplit[fileSplit.length - 1]);
@@ -20,15 +20,8 @@ module.exports = {
     gulp.src( foldersBuild + '/' + filesHtml )
       .pipe( gulpInject( gulp.src( files ), {name:'vendor', relative: true}))
       .pipe( gulpInject( gulp.src( foldersBuild + '/app/' + filesJs).pipe(angularFilesort()), {name:'app', relative: true}))
+      .pipe( gulpInject( gulp.src( foldersBuild + '/' + filesCss), {relative: true}))
       .pipe( gulp.dest( foldersBuild ));
-
-    // gulp.src( foldersBuild + '/' + filesHtml )
-    //   .pipe( gulp.dest( foldersBuild ));
-
-    // gulp.src( foldersBuild + '/' + filesHtml )
-    //   .pipe( gulpInject( gulp.src( foldersBuild + '/' + filesCss, {read: false}), {relative: true}))
-    //   .pipe( gulp.dest( foldersBuild ));
-
   },
   injectDist: function() {
     // gulp         = global.gulp;

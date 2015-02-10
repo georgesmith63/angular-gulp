@@ -1,0 +1,106 @@
+global = {
+  packageJson:      require('./package.json'),
+  gulp:             require('gulp'),
+  gulpRunSequence:  require('gulp-run-sequence'),
+  gulpClean:        require('gulp-clean'),
+  browserSync:      require('browser-sync'),
+  gulpLess:         require('gulp-less'),
+  gulpConcat:       require('gulp-concat'),
+  gulpInject:       require('gulp-inject'),
+  path:             require('path'),
+  gulpUglify:       require('gulp-uglify'),
+  gulpCleanConf:    require('./config/gulp-clean.conf.js'),
+  gulpHtml2Js:      require('gulp-ng-html2js'),
+
+  gulpFileCopyConf: require('./config/gulp-file-copy.conf.js'),
+  browserSyncConf:  require('./config/browser-sync.conf.js'),
+  gulpLessConf:     require('./config/gulp-less.conf.js'),
+  gulpConcatConf:   require('./config/gulp-concat.conf.js'),
+  gulpInjectConf:   require('./config/gulp-inject.conf.js'),
+  gulpUglifyConf:   require('./config/gulp-uglify.conf.js'),
+
+  gulpHtml2JsConf:  require('./config/gulp-ng-html2js.conf.js'),
+  gulpAngularFileSort:  require('gulp-angular-filesort'),
+
+  options: {
+    angular: {
+      prefix: 'config/angular.prefix',
+      suffix: 'config/angular.suffix'
+    },
+    folders: {
+      bower:  './bower_components',
+      src:    './src',
+      build:  './build',
+      dist:   './dist'
+    },
+    files: {
+      html:   'index.html',
+      tpl:    '**/*.tpl',
+      less:   '**/*.less',
+      css:    '**/*.css',
+      js:     '**/*.js',
+      spec:   '**/*.spec-js'
+    },
+    vendor: {
+      js: {
+        files: [
+          './bower_components/jquery/dist/jquery.js',
+          './bower_components/angular/angular.js',
+          './bower_components/angular-ui-router/release/angular-ui-router.js',
+          './bower_components/bootstrap/dist/js/bootstrap.js'
+        ],
+        target: 'vendor'
+      },
+      css: {
+        files: [
+          './bower_components/bootstrap/dist/css/bootstrap.min.css'
+        ],
+        target: 'vendor'
+      },
+      fonts: {
+        files: [
+          './bower_components/bootstrap/dist/fonts/*'
+        ],
+        target: 'vendor/fonts'
+      }
+    }
+  }
+}
+
+var gulp = global.gulp;
+var gulpRunSequence = global.gulpRunSequence;
+
+gulp.task('default', function() {});
+
+gulp.task('serve:build',  global.browserSyncConf.serveBuild);
+gulp.task('server:dist',  global.browserSyncConf.serveDist);
+
+gulp.task('copy:build',   global.gulpFileCopyConf.copyBuild);
+gulp.task('copy:vendor', global.gulpFileCopyConf.copyVendor);
+gulp.task('inject:build', global.gulpInjectConf.injectBuild);
+gulp.task('uglify:build', global.gulpUglifyConf.uglifyBuild);
+gulp.task('less:build',   global.gulpLessConf.lessBuild);
+gulp.task('ngHtml2js:build', global.gulpHtml2JsConf.html2jsBuild);
+gulp.task('build:dist', function(){
+  gulpRunSequence(
+    'uglify:build'
+  );
+});
+
+gulp.task('build', function() {
+  gulpRunSequence(
+    'clean:build',
+    'copy:build',
+    'copy:vendor',
+    'ngHtml2js:build',
+    'inject:build',
+    'serve:build'
+  );
+});
+gulp.task('less:dist', global.gulpLessConf.lessDist);
+gulp.task('copy:dist',   global.gulpFileCopyConf.copyDist);
+
+
+
+
+gulp.task('concat',       global.gulpConcatConf.concatJavascript);
