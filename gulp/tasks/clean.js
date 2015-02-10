@@ -2,13 +2,11 @@
 
 var config = global.config;
 var gulp   = require('gulp');
-var clean  = require('gulp-clean');
+var del    = require('del');
 
-gulp.task('clean:build', function() {
-  return gulp.src( config.folders.build )
-    .pipe( clean() );
+gulp.task('clean:build', function(cb) {
+  return del([ config.folders.build ], cb);
 });
-gulp.task('clean:dist', function() {
-  return gulp.src( config.folders.dist )
-    .pipe( clean() );
+gulp.task('clean:dist', function(cb) {
+  return del([ config.folders.dist ], cb);
 });

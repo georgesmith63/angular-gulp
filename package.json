@@ -14,7 +14,6 @@
   "dependencies": {},
   "devDependencies": {
     "gulp": "*",
-    "gulp-clean": "*",
     "gulp-less": "*",
     "gulp-concat": "*",
     "gulp-inject": "*",
@@ -22,9 +21,8 @@
     "gulp-ng-html2js": "*",
     "gulp-angular-filesort": "*",
     "browser-sync": "*",
-    "run-sequence": "*",
-    "path": "*",
-    "fs": "*"
+    "del": "*",
+    "run-sequence": "*"
   },
   "engines": {
     "node": ">=0.10.0"

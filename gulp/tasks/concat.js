@@ -17,5 +17,5 @@ gulp.task('concat', function(){
               foldersSrc + '/common/' + filesJs,
               angularSuffix ] )
     .pipe( concat( angularJs ) )
-    .pipe( gulp.dest( foldersDist ) );
+    .pipe( gulp.dest( foldersDist + '/app' ) );
 });

@@ -27,5 +27,5 @@ gulp.task('less:dist', function() {
       paths: [ path.join(__dirname, 'less', 'includes') ]
     }))
     .pipe( concat( cssFile ))
-    .pipe( gulp.dest( foldersDist ));
+    .pipe( gulp.dest( foldersDist + "/css" ));
 });

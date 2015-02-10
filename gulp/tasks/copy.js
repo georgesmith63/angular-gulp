@@ -8,12 +8,13 @@ var files       = config.files;
 var vendor      = config.vendor;
 
 gulp.task('copy:build', function() {
-  return runSequence(['copy:build:js',
-               'copy:build:vendorJs',
-               'copy:build:vendorCss',
-               'copy:build:vendorFonts']);
-})
-gulp.task('copy:build:js', function() {
+  return runSequence([
+    'copy:build:src',
+    'copy:build:vendorJs',
+    'copy:build:vendorCss',
+    'copy:build:vendorFonts']);
+});
+gulp.task('copy:build:src', function() {
   files = [
     folders.src + '/' + files.html,
     folders.src + '/' + files.js,
@@ -36,12 +37,30 @@ gulp.task('copy:build:vendorFonts', function() {
 })
 
 gulp.task('copy:dist', function() {
-  return gulp.src( folders.src + '/' + files.html )
-    .pipe( gulp.dest( folders.dist ))
-  gulp.src( vendor.js.files )
+  return runSequence([
+    'copy:dist:src',
+    'copy:dist:vendorJs',
+    'copy:dist:vendorCss',
+    'copy:dist:vendorFonts']);
+});
+
+gulp.task('copy:dist:src', function() {
+  files = [
+    folders.src + '/' + files.html,
+    folders.src + '/' + files.tpl
+  ];
+  return gulp.src( files )
+    .pipe( gulp.dest( folders.dist ) );
+});
+gulp.task('copy:dist:vendorJs', function() {
+  return gulp.src( vendor.js.files )
     .pipe( gulp.dest( folders.dist + '/' + vendor.js.target ) );
-  gulp.src( vendor.css.files )
+});
+gulp.task('copy:dist:vendorCss', function() {
+  return gulp.src( vendor.css.files )
     .pipe( gulp.dest( folders.dist + '/' + vendor.css.target ) );
+});
+gulp.task('copy:dist:vendorFonts', function() {
   gulp.src( vendor.fonts.files )
     .pipe( gulp.dest( folders.dist + '/' + vendor.fonts.target ) );
-});
+})

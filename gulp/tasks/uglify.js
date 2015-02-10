@@ -12,8 +12,8 @@
     folderJs + '/' + filesJs
     ];
 gulp.task('uglify',function(){
-  return gulp.src(files)
-    .pipe( uglify())
-    .pipe( concat(outputName))
-    .pipe( gulp.dest(folderDist) );
+  return gulp.src( files )
+    // .pipe( uglify() )
+    .pipe( concat(outputName) )
+    .pipe( gulp.dest(folderDist + '/app') );
 });

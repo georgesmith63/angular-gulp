@@ -32,13 +32,13 @@ gulp.task('inject:build',function() {
 
 gulp.task('inject:dist', function() {
   var foldersDist  = config.folders.dist;
-  var files   = getVendorFiles( foldersDist );
-  var mainJs  = foldersDist + '/' + packageJson.name + '-' + packageJson.version + '.js';
-  var mainCss = foldersDist + '/' + packageJson.name + '-' + packageJson.version + '.css';
+  var files    = getVendorFiles( foldersDist );
+  var jsFiles  = foldersDist + '/app/' + filesJs;
+  var cssFiles = foldersDist + '/' + filesCss;
 
   return gulp.src( foldersDist + '/' + filesHtml )
-    .pipe( gulpInject( gulp.src( files ),   {name:'vendor', relative: true}))
-    .pipe( gulpInject( gulp.src( mainJs ),  {name:'app', relative: true}))
-    .pipe( gulpInject( gulp.src( mainCss ), {relative: true}))
+    .pipe( gulpInject( gulp.src( files ),    {name:'vendor', relative: true}))
+    .pipe( gulpInject( gulp.src( jsFiles ),  {name:'app', relative: true}))
+    .pipe( gulpInject( gulp.src( cssFiles ), {relative: true}))
     .pipe( gulp.dest( foldersDist ));
 });
