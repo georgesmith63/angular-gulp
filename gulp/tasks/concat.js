@@ -3,7 +3,7 @@
 var config        = global.config;
 var gulp          = require('gulp');
 var concat        = require('gulp-concat');
-var foldersSrc    = config.folders.src;
+var foldersSrc    = config.folders.build;
 var foldersDist   = config.folders.dist;
 var filesJs       = config.files.js;
 var angularPrefix = config.angular.prefix;
@@ -17,5 +17,5 @@ gulp.task('concat', function(){
               foldersSrc + '/common/' + filesJs,
               angularSuffix ] )
     .pipe( concat( angularJs ) )
-    .pipe( gulp.dest( foldersDist + '/app' ) );
+    .pipe( gulp.dest( foldersDist ) );
 });

@@ -18,12 +18,3 @@ gulp.task('html2js:build',function(){
     .pipe( concat( outputName ) )
     .pipe( gulp.dest( foldersBuild + '/app' ) );
 });
-
-gulp.task('html2js:dist',function(){
-  return gulp.src( foldersSrc + '/' + filesTpl )
-  .pipe( html2js( {
-    moduleName: 'common-templates'
-  }))
-  .pipe( concat( outputName ) )
-  .pipe( gulp.dest( foldersDist + '/app' ) );
-});

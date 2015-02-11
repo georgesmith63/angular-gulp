@@ -22,10 +22,10 @@ gulp.task('less:build', function() {
 
 gulp.task('less:dist', function() {
   var cssFile = packageJson.name + '-' +  packageJson.version + '.css';
-  return gulp.src( foldersSrc + '/' + filesLess )
+   return gulp.src( foldersSrc + '/' + filesLess )
     .pipe( less ({
       paths: [ path.join(__dirname, 'less', 'includes') ]
     }))
     .pipe( concat( cssFile ))
-    .pipe( gulp.dest( foldersDist + "/css" ));
+    .pipe( gulp.dest( foldersDist ));
 });

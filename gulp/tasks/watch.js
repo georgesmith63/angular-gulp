@@ -11,9 +11,9 @@ var filesHtml    = config.files.html;
 var filesTpl     = config.files.tpl;
 
 gulp.task('watch:build', function() {
-    runSequence('clean:build', 'copy:build', 'less:build', 'html2js:dist', 'inject:build', 'browserSync:build');
+    runSequence('clean:build', 'copy:build', 'less:build', 'html2js:build', 'inject:build', 'browserSync:build');
   return gulp.watch(foldersSrc + '/' + files, function() {
-    runSequence('clean:build', 'copy:build', 'less:build', 'html2js:dist', 'inject:build', 'browserSync:build');
+    runSequence('clean:build', 'copy:build', 'less:build', 'html2js:build', 'inject:build', 'browserSync:build');
   });
 });
 

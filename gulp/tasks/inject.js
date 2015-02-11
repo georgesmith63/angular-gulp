@@ -9,6 +9,7 @@ var filesHtml       = config.files.html;
 var filesJs         = config.files.js;
 var filesCss        = config.files.css;
 var vendorJs        = config.vendor.js.files;
+var appFileName     = packageJson.name + '-' + packageJson.version + '.js';
 
 var getVendorFiles = function(folder) {
   var files = [];
@@ -30,13 +31,13 @@ gulp.task('inject:build',function() {
     .pipe( gulp.dest( foldersBuild ));
 });
 
-gulp.task('inject:dist', function() {
+gulp.task('inject:dist', ['copy:dist', 'less:dist'], function() {
   var foldersDist  = config.folders.dist;
   var files    = getVendorFiles( foldersDist );
-  var jsFiles  = foldersDist + '/app/' + filesJs;
+  var jsFiles  = foldersDist + '/' + appFileName;
   var cssFiles = foldersDist + '/' + filesCss;
 
-  return gulp.src( foldersDist + '/' + filesHtml )
+   return gulp.src( foldersDist + '/' + filesHtml )
     .pipe( gulpInject( gulp.src( files ),    {name:'vendor', relative: true}))
     .pipe( gulpInject( gulp.src( jsFiles ),  {name:'app', relative: true}))
     .pipe( gulpInject( gulp.src( cssFiles ), {relative: true}))
