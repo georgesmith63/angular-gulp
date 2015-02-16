@@ -1,6 +1,7 @@
 angular.module( 'angularSeed', [
   'common-templates',
   'angularSeed.home',
+  'angularSeed.example',
   'ui.router'
 ])
 
@@ -17,6 +18,24 @@ angular.module( 'angularSeed', [
       'main': {
         templateUrl: 'app/home/home.tpl',
         controller: 'HomeCtrl'
+      },
+      'footer': {
+        templateUrl: 'app/footer/footer.tpl'
+      }
+    },
+    data: {
+      pageTitle: 'Home'
+    }
+  })
+  .state('example', {
+    url: '/example',
+    views: {
+      'header': {
+        templateUrl: 'app/header/header.tpl'
+      },
+      'main': {
+        templateUrl: 'app/example/example.tpl',
+        controller: 'ExampleCtrl'
       },
       'footer': {
         templateUrl: 'app/footer/footer.tpl'

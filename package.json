@@ -20,6 +20,7 @@
     "gulp-uglify": "*",
     "gulp-ng-html2js": "*",
     "gulp-angular-filesort": "*",
+    "gulp-unzip": "*",
     "browser-sync": "*",
     "del": "*",
     "run-sequence": "*"
