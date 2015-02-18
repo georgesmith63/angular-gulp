@@ -3,14 +3,14 @@
 module.exports = {
   app: {
     src: {
-      index:  'index.html',
       folder: './src'
     },
     build: {
-      index:  'index.html',
       folder: './build'
     },
-    dist: {},
+    dist: {
+      folder: './dist'
+    },
     prefix: 'gulp/angular.prefix',
     suffix: 'gulp/angular.suffix'
   },
@@ -18,7 +18,7 @@ module.exports = {
     angular: {
       js: {
         build: 'vendor',
-        dest:  '',
+        dist:  'vendor',
         files: [
           './bower_components/jquery/dist/jquery.js',
           './bower_components/angular/angular.js',
@@ -28,17 +28,17 @@ module.exports = {
     bootstrap: {
       js: {
         build: 'vendor',
-        dest:  '',
+        dist:  'vendor',
         files: ['./bower_components/bootstrap/dist/js/bootstrap.js']
       },
       css: {
         build: 'vendor',
-        dest:  '',
+        dist:  'vendor',
         files: ['./bower_components/bootstrap/dist/css/bootstrap.min.css']
       },
       fonts: {
         build: 'vendor/fonts',
-        dest:  '',
+        dist:  'vendor/fonts',
         files: [
           './bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.eot',
           './bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.svg',
