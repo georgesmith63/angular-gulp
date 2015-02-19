@@ -12,7 +12,8 @@ gulp.task('dist', ['clean:dist'], function() {
     'bootstrap:dist:inject',
     'angular:dist:copy:js',
     'angular:dist:inject',
+    'concat',
     'less:dist',
-    'html2js',
+    'html2js:dist',
     'inject:dist');
 });

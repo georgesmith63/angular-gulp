@@ -12,7 +12,7 @@ gulp.task('build', ['clean:build'], function() {
     'bootstrap:build:inject',
     'angular:build:copy:js',
     'angular:build:inject',
-    'less:build',
     'html2js:build',
+    'less:build',
     'inject:build');
 });
