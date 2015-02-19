@@ -1,6 +1,7 @@
 angular.module( 'angularSeed', [
   'common-templates',
   'angularSeed.home',
+  'angularSeed.header',
   'angularSeed.example',
   'ui.router'
 ])
@@ -13,7 +14,8 @@ angular.module( 'angularSeed', [
     url: '/home',
     views: {
       'header': {
-        templateUrl: 'app/header/header.tpl'
+        templateUrl: 'app/header/header.tpl',
+        controller: 'HeaderCtrl'
       },
       'main': {
         templateUrl: 'app/home/home.tpl',
@@ -31,7 +33,8 @@ angular.module( 'angularSeed', [
     url: '/example',
     views: {
       'header': {
-        templateUrl: 'app/header/header.tpl'
+        templateUrl: 'app/header/header.tpl',
+        controller: 'HeaderCtrl'
       },
       'main': {
         templateUrl: 'app/example/example.tpl',
